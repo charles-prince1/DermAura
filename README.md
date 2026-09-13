@@ -1,16 +1,65 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DermAura Care
+A modern, responsive e-commerce web application for a luxury skincare and fragrance brand. Built with React and styled with Tailwind CSS, this project features dynamic dark mode toggling, interactive shopping cart management, and fluid UI components.
 
-Currently, two official plugins are available:
+Features
+Dynamic Dark/Light Mode: Full context-driven theme switching via a custom ThemeProvider hook.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Responsive Layout: Fully optimized for mobile, tablet, and desktop views with a sleek mobile drawer menu.
 
-## React Compiler
+Interactive Shopping Cart: Real-time item count updates on the navigation bar.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Pricing & Auto-Refill Toggle: Dynamic pricing display supporting one-time purchases and subscription discounts.
 
-## Expanding the ESLint configuration
+Component-Based Architecture: Modular design featuring Navbar, Hero, About, How It Works, Pricing, FAQ, and Footer components.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tech Stack
+Frontend: React (JSX, Hooks, Context API)
+
+Styling: Tailwind CSS
+
+Icons: Lucide React (lucide-react)
+
+Getting Started
+Prerequisites
+Ensure you have Node.js and npm installed on your system:
+
+Node.js (v16.0 or higher)
+
+npm or yarn
+
+Installation
+Clone the repository:
+
+Bash
+git clone https://github.com/your-username/smoothskin-care.git
+cd smoothskin-care
+Install dependencies:
+
+Bash
+npm install
+Start the development server:
+
+Bash
+npm run dev
+File Structure
+Plaintext
+src/
+├── components/
+│   ├── AboutProduct.jsx
+│   ├── BackToTop.jsx
+│   ├── DemoModal.jsx
+│   ├── FAQ.jsx
+│   ├── Features.jsx
+│   ├── FinalCTA.jsx
+│   ├── Footer.jsx
+│   ├── Hero.jsx
+│   ├── HowItWorks.jsx
+│   ├── Navbar.jsx
+│   └── Pricing.jsx
+├── context/
+│   └── ThemeProvider.jsx
+├── App.jsx
+├── main.jsx
+└── index.css
