@@ -47,8 +47,11 @@ export const ThemeProvider = ({ children }) => {
       // Only auto-update if the user hasn't explicitly set a preference in localStorage
       if (localStorage.getItem("theme") === null) {
         setIsLightMode(!e.matches);
+        console.log(isLightMode);
+        
       }
     };
+console.log(isLightMode);
 
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);

@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { Search, ShoppingBag, Menu, X, Sun, Moon } from 'lucide-react';
-
-export default function Navbar({ darkMode, setDarkMode, setCartCount, cartCount }) {
+import { useTheme } from '../context/ThemeProvider';
+import {Link, useNavigate} from "react-router-dom"
+import { UseCart } from '../context/CartProvider';
+export default function Navbar({ darkMode, setDarkMode, setCartCount, }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const {toggleTheme, isLightMode} = useTheme()
+const {cartCount } = UseCart()
+const Navigate = useNavigate()
 
   return (
     <nav className="sticky w-full top-0 z-40 bg-brand-50/90 dark:bg-brand-900/90 backdrop-blur-md border-b border-brand-200/50 dark:border-brand-800/50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="font-serif text-2xl tracking-wider font-bold text-brand-900 dark:text-brand-50">
-         DermaAura
-        </a>
+        <Link to="/" className="font-serif text-2xl tracking-wider font-bold text-brand-900 dark:text-brand-50">
+       <img src="/Der.jpg" alt='/Der.jpg' className='rounded-full w-20 h-20 bg-transparent'/>
+        </Link>
         
         {/* Desktop Links */}
         <div className="hidden md:flex space-x-8 text-sm font-medium text-brand-900 dark:text-brand-100">
@@ -19,25 +24,25 @@ export default function Navbar({ darkMode, setDarkMode, setCartCount, cartCount 
           <a href="#how-it-works" className="hover:text-brand-500 transition">How It Works</a>
           <a href="#solutions" className="hover:text-brand-500 transition">Solutions</a>
           <a href="#pricing" className="hover:text-brand-500 transition">Shop & Pricing</a>
-          <a href="#faq" className="hover:text-brand-500 transition">FAQ</a>
+          <a href="#faq" className="hover:text-brand-500 t   ransition">FAQ</a>
         </div>
 
         {/* Action Icons & CTA */}
         <div className="flex items-center space-x-3">
           {/* Dark Mode Toggle */}
           <button 
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={toggleTheme}
             aria-label="Toggle Theme"
             className="p-2 text-brand-900 dark:text-brand-100 hover:text-brand-500 transition rounded-full"
           >
-            {darkMode ? <Sun className="w-5 h-5 text-amber-300" /> : <Moon className="w-5 h-5" />}
+            {isLightMode ? <Sun className="w-5 h-5 text-amber-300" /> : <Moon className="w-5 h-5" />}
           </button>
 
           <button aria-label="Search" className="p-2 text-brand-900 dark:text-brand-100 hover:text-brand-500 transition">
             <Search className="w-5 h-5" />
           </button>
           
-          <button aria-label="Cart" className="p-2 text-brand-900 dark:text-brand-100 hover:text-brand-500 transition relative">
+          <button aria-label="Cart" onClick={()=>Navigate("/CArt-added")} className="p-2 text-brand-900 dark:text-brand-100 hover:text-brand-500 transition relative">
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
               <span className="absolute top-1 right-1 bg-brand-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">

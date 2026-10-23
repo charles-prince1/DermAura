@@ -15,11 +15,16 @@ import Footer from '../component/Footer';
 import DemoModal from '../component/Demo';
 import BackToTop from '../component/Back';
 import Product from '../component/Products';
+import { useTheme } from "../context/ThemeProvider";
+import { UseCart } from '../context/CartProvider';
 
 export default function HomePage() {
   const [darkMode, setDarkMode] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const { cartAlert } = UseCart();
+  const { isLightMode } = useTheme();
 
   useEffect(() => {
     if (darkMode) {
@@ -30,8 +35,16 @@ export default function HomePage() {
   }, [darkMode]);
 
   return (
-    <div className="bg-brand-50 dark:bg-brand-900 text-brand-900 dark:text-brand-50 font-sans antialiased min-h-screen transition-colors duration-300">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} cartCount={cartCount} />
+    <div className={`relative bg-brand-50 ${isLightMode ? "bg-brand-50" : "dark:bg-brand-900"} text-brand-900 dark:text-brand-50 font-sans antialiased min-h-screen transition-colors duration-300`}>
+      
+      {/* Inline DOM Alert Banner */}
+      {cartAlert && (
+        <div className="fixed top-25 right-5 z-[100] bg-[#2A1D16]  text-white px-4 py-3 rounded-lg shadow-xl border border-brand-500 animate-fade-in-down max-w-sm">
+          <p className="text-sm font-medium">{cartAlert}</p>
+        </div>
+      )}
+
+      {/* <Navbar /> */}
       <main>
         <Hero onOpenModal={() => setIsModalOpen(true)} />
         <TrustedBy />

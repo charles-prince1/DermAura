@@ -1,23 +1,5 @@
-// import { useState } from 'react'
-// import './App.css'
-// import Accordian from './component/Accordian'
-// import SignupWizard from "./Pages/Signup.jsx"
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// function App() {
-  
 
-//   return (
-//    <BrowserRouter>
-//     <Routes>
-//       <Route exact path="/" element={<Accordian />} />
-//       {/* <Route path="/signUp" element={<SignupWizard/> } /> */}
-//     </Routes>
-//    </BrowserRouter>
-//   )
-// }
-
-// export default App
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Header from './component/Header';
 import Hero from './component/Hero';
@@ -26,13 +8,24 @@ import About from './component/About';
 // import Product from './component/Product';
 import Footer from './component/Footer';
 import LandingPage from './component/trash';
+import Navbar from './component/Header';
+import CartProductPage from './Pages/CartProduct';
 import HomePage from "./Pages/HomePage"
 export default function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={  <HomePage />} />
-      <Route path='/A' element={  <LandingPage />} />
+      <Route path='/' element={ 
+      <>
+      <Navbar />
+      <HomePage />
+      </>} />
+      <Route path='/Cart-added' element={  
+        <>
+        <Navbar />
+        <CartProductPage />
+        </>} />
+      {/* <Route path='/S' element={  <SignupWizard />} /> */}
     </Routes>
     </BrowserRouter>
   );

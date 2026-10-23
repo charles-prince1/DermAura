@@ -7,7 +7,7 @@ const products = [
     id: 1,
     name: 'Silk & Santal Scent Serum',
     notes: 'Australian Sandalwood, Warm Amber, Creamy Vanilla',
-    price: '$85',
+    price: '85',
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=600',
     tag: 'Bestseller'
@@ -16,7 +16,7 @@ const products = [
     id: 2,
     name: 'Velvet Flora Moisture Parfum',
     notes: 'Damask Rose, Hydrating Squalane, Soft Musk',
-    price: '$85',
+    price: '85',
     rating: 4.8,
     image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600',
     tag: 'Hydrating'
@@ -25,7 +25,7 @@ const products = [
     id: 3,
     name: 'Citrus Barrier Elixir',
     notes: 'Bergamot, Neroli, Jojoba Lipid Complex',
-    price: '$85',
+    price: '85',
     rating: 5.0,
     image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600',
     tag: 'New'
