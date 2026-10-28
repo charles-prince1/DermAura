@@ -35,7 +35,7 @@ export default function HomePage() {
   }, [darkMode]);
 
   return (
-    <div className={`relative bg-brand-50 ${isLightMode ? "bg-brand-50" : "dark:bg-brand-900"} text-brand-900 dark:text-brand-50 font-sans antialiased min-h-screen transition-colors duration-300`}>
+    <div className={`relative bg-brand-50 ${isLightMode ? "bg-brand-50" : "dark:bg-black"} text-brand-900 dark:text-brand-50 font-sans antialiased min-h-screen transition-colors duration-300`}>
       
       {/* Inline DOM Alert Banner */}
       {cartAlert && (

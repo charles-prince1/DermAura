@@ -71,7 +71,7 @@ export default function Product() {
               </div>
 
               <div className="p-6 pt-0 flex items-center justify-between border-t border-[#F4EFEA] mt-4">
-                <span className="font-serif text-2xl text-[#2A1D16]">{product.price}</span>
+                <span className="font-serif text-2xl text-[#2A1D16]"> &#8358;{product.price}</span>
                 <button className="inline-flex items-center bg-[#4A3427] text-white px-4 py-2.5 rounded-full text-xs font-medium hover:bg-[#2A1D16] transition" onClick={()=>handleCart(product)}>
                   <ShoppingBag className="w-3.5 h-3.5 mr-2" /> Add to Cart
                 </button>

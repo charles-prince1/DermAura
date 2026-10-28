@@ -297,7 +297,7 @@ const CartProductPage = () => {
           <p className="text-brand-500 dark:text-brand-400 text-sm mb-8 max-w-xs mx-auto">
             Looks like you haven't added anything to your cart yet. Explore our top products to get started.
           </p>
-          <a href="/products" className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-sm">
+          <a href="/#pricing" className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold px-6 py-3 rounded-xl transition-all duration-200 shadow-sm">
             Continue Shopping
             <ArrowRight size={16} />
           </a>

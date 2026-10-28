@@ -1,8 +1,9 @@
 import React from 'react';
-
+import { useTheme } from '../context/ThemeProvider';
 export default function TrustedBy() {
+  const {isLightMode} = useTheme()
   return (
-    <section className="py-10 border-y border-brand-200/60 dark:border-brand-800/60 bg-white/40 dark:bg-brand-900/40">
+    <section className={`py-10 border-y  ${isLightMode ? "bg-brand-800  border-brand-200/60":"dark:bg-brand-900/40 dark:border-brand-800/60"}  `}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-brand-800/50 dark:text-brand-200/50 mb-6">
           Featured In & Dermatologist Certified
