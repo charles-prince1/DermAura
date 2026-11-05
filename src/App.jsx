@@ -16,7 +16,7 @@ import { useTheme } from './context/ThemeProvider';
 export default function App() {
   const {isLightMode} = useTheme()
 
-  if(window.Navigator===){}
+
   return (
     <BrowserRouter>
     <Routes>
