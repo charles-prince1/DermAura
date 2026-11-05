@@ -1,5 +1,6 @@
 import React from 'react';
 import { Droplet, Sparkles, HeartPulse, Clock, Leaf, Award } from 'lucide-react';
+import { useTheme } from '../context/ThemeProvider';
 
 const features = [
   { icon: Droplet, title: '100% Alcohol-Free', desc: 'Prevents natural skin moisture stripping and redness.' },
@@ -11,24 +12,25 @@ const features = [
 ];
 
 export default function Features() {
+  const {isLightMode} = useTheme()
   return (
     <section id="features" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl text-brand-900 dark:text-brand-50">Why Choose SmoothSkin Perfumes?</h2>
-          <p className="text-brand-800/70 dark:text-brand-200/70 mt-3">Skincare science meets fine luxury perfumery.</p>
+          <h2 className={`font-serif text-3xl sm:text-4xl ${isLightMode? "text-brand-900":"dark:text-brand-50"}`}>Why Choose SmoothSkin Perfumes?</h2>
+          <p className={`mt-3 ${isLightMode?"text-brand-800/70":"dark:text-brand-200/70 "}`}>Skincare science meets fine luxury perfumery.</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((item, idx) => {
             const IconComponent = item.icon;
             return (
-              <div key={idx} className="bg-white dark:bg-brand-800/40 p-8 rounded-2xl border border-brand-200/60 dark:border-brand-700 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group">
-                <div className="w-12 h-12 bg-brand-100 dark:bg-brand-800 rounded-xl flex items-center justify-center text-brand-600 dark:text-brand-200 mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300">
+              <div key={idx} className={`p-8 rounded-2xl border shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group ${isLightMode ? "bg-white border-brand-200/60":"dark:border-brand-700 dark:bg-brand-800/40"}`}>
+                <div className={`w-12 h-12  rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors duration-300 ${isLightMode?"bg-brand-100 text-brand-600":"dark:text-brand-200 dark:bg-brand-800"}`}>
                   <IconComponent className="w-6 h-6" />
                 </div>
-                <h3 className="font-serif text-xl text-brand-900 dark:text-brand-100 mb-2">{item.title}</h3>
-                <p className="text-brand-800/70 dark:text-brand-200/70 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className={`font-serif text-xl  mb-2 ${isLightMode?"text-brand-900":" dark:text-brand-100"}`}>{item.title}</h3>
+                <p className={` text-sm leading-relaxed ${isLightMode?"text-brand-800/70":" dark:text-brand-200/70"}`}>{item.desc}</p>
               </div>
             );
           })}

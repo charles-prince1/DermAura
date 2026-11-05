@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { useTheme } from '../context/ThemeProvider';
 export default function Statistics() {
   const [counts, setCounts] = useState({ hydration: 0, hours: 0, customers: 0 });
 
@@ -23,8 +23,9 @@ export default function Statistics() {
     return () => clearInterval(timer);
   }, []);
 
+  const {isLightMode} = useTheme()
   return (
-    <section className="py-16 bg-brand-100 dark:bg-xl bg-[#2A1D16] text-white">
+    <section className={`py-16  ${isLightMode?"bg-brand-900 text-white":" dark:bg-[#2A1D16]"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           <div className="p-4">

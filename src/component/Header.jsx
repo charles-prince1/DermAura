@@ -8,7 +8,12 @@ export default function Navbar({ darkMode, setDarkMode, setCartCount, }) {
 const {toggleTheme, isLightMode} = useTheme()
 const {cartCount } = UseCart()
 const Navigate = useNavigate()
+const [urlchanged, setUrlChanged]=useState(false)
 
+if(window.navigator==="http://localhost:5100/CArt-added"){
+console.log("true");
+
+}
   return (
     <nav className={`sticky w-full top-0 z-40 ${isLightMode ? "bg-brand-50/90 " : "dark:bg-[#2A1D16]"}  backdrop-blur-md border-b border-brand-200/50 dark:border-brand-800/50 transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">

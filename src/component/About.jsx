@@ -33,10 +33,11 @@
 //   );
 // }
 import React from 'react';
-
+import { useTheme } from '../context/ThemeProvider';
 export default function AboutProduct() {
+  const {isLightMode} = useTheme()
   return (
-    <section id="about" className="py-20 bg-brand-100/50 dark:bg-brand-800/20">
+    <section id="about" className={`py-20 ${isLightMode ?"bg-brand-100/50":"  dark:bg-brand-800/20"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="grid grid-cols-2 gap-4">
@@ -45,11 +46,11 @@ export default function AboutProduct() {
           </div>
           <div className="space-y-6">
             <span className="text-brand-500 font-semibold text-sm tracking-wider uppercase">Bridging Skincare & Perfumery</span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-brand-900 dark:text-brand-50">Fragrance Should Never Compromise Skin Health</h2>
-            <p className="text-brand-800/80 dark:text-brand-200/80 leading-relaxed">
+            <h2 className={`font-serif text-3xl sm:text-4xl ${isLightMode?"text-brand-900":"dark:text-brand-50"}`}>Fragrance Should Never Compromise Skin Health</h2>
+            <p className={`leading-relaxed ${isLightMode?"text-brand-800/80":" dark:text-brand-200/80"}`}>
               DermaAura was founded by dermatologists and master perfumers who recognized a common flaw in modern beauty: standard perfumes dry out the skin, cause redness, and disrupt your natural barrier.
             </p>
-            <p className="text-brand-800/80 dark:text-brand-200/80 leading-relaxed">
+            <p className={` leading-relaxed ${isLightMode?"text-brand-800/80":" dark:text-brand-200/80"}`}>
               We replaced harsh ethanol bases with rich, fast-absorbing botanical oils. The result is a fine fragrance serum that moisturizes upon application while wrapping you in an enduring, sophisticated olfactory aura.
             </p>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import { useTheme } from '../context/ThemeProvider';
 const testimonials = [
   {
     quote: "Finally, a luxury perfume line I can confidently recommend to patients with delicate or eczema-prone skin. It leaves skin glowing rather than irritated.",
@@ -34,35 +34,37 @@ export default function Testimonials() {
 
   return() => clearInterval(intervalID)
 },[])
+
+const {isLightMode} = useTheme()
   return (
-    <section className="py-20 bg-white dark:bg-brand-900/50">
+    <section className={`py-20 ${isLightMode?"bg-brand-200":"dark:bg-brand-900/50"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl text-brand-900 dark:text-brand-50">Loved by Dermatologists & Perfume Lovers</h2>
+          <h2 className={`font-serif text-3xl sm:text-4xl ${isLightMode?"text-brand-900":"dark:text-brand-50"}`}>Loved by Dermatologists & Perfume Lovers</h2>
         </div>
 
         {/* Carousel Display */}
-        <div className="max-w-3xl mx-auto relative bg-brand-50 dark:bg-brand-800/40 p-8 sm:p-12 rounded-3xl border border-brand-200/50 dark:border-brand-700 shadow-sm">
+        <div className={`max-w-3xl mx-auto relative p-8 sm:p-12 rounded-3xl border shadow-sm ${isLightMode?" bg-brand-50 border-brand-200/50":"dark:bg-brand-800/40  dark:border-brand-700"}`}>
           <div className="flex text-amber-500 mb-6">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-5 h-5 fill-current" />
             ))}
           </div>
-          <p className="text-brand-800/90 dark:text-brand-100 text-lg sm:text-xl italic font-serif leading-relaxed mb-8">
+          <p className={`text-lg sm:text-xl italic font-serif leading-relaxed mb-8 ${isLightMode?"text-brand-800/90":" dark:text-brand-100 "}`}>
             "{testimonials[currentIndex].quote}"
           </p>
           <div>
-            <p className="font-semibold text-brand-900 dark:text-brand-50 text-base">{testimonials[currentIndex].author}</p>
-            <p className="text-xs text-brand-800/60 dark:text-brand-200/60">{testimonials[currentIndex].role}</p>
+            <p className={`font-semibold text-base ${isLightMode?"text-brand-900":"  dark:text-brand-50"}`}>{testimonials[currentIndex].author}</p>
+            <p className={`text-xs   ${isLightMode?"text-brand-800/60":"dark:text-brand-200/60"}`}>{testimonials[currentIndex].role}</p>
           </div>
 
           {/* Carousel Navigation Buttons */}
           <div className="flex space-x-3 absolute bottom-8 right-8">
-            <button onClick={prev} aria-label="Previous Testimonial" className="p-2.5 rounded-full bg-white dark:bg-brand-700 border border-brand-200 dark:border-brand-600 hover:bg-brand-100 transition">
-              <ChevronLeft className="w-4 h-4 text-brand-900 dark:text-brand-100" />
+            <button onClick={prev} aria-label="Previous Testimonial" className={`p-2.5 rounded-full  border  transition ${isLightMode?"bg-brand-100 border-brand-200 hover:bg-brand-200":" dark:hover:bg-brand-800 dark:bg-brand-700 dark:border-brand-600"}`}>
+              <ChevronLeft className={`w-4 h-4   ${isLightMode?"text-brand-900":"dark:text-brand-100"}`} />
             </button>
-            <button onClick={next} aria-label="Next Testimonial" className="p-2.5 rounded-full bg-white dark:bg-brand-700 border border-brand-200 dark:border-brand-600 hover:bg-brand-100 transition">
-              <ChevronRight className="w-4 h-4 text-brand-900 dark:text-brand-100" />
+            <button onClick={next} aria-label="Next Testimonial" className={`p-2.5 rounded-full  border  transition ${isLightMode?" bg-brand-100 border-brand-200  hover:bg-brand-200":"dark:bg-brand-700 dark:border-brand-600 dark:border-brand-600 dark:hover:bg-brand-800"}`}>
+              <ChevronRight className={`w-4 h-4  ${isLightMode?" text-brand-900":"dark:text-brand-100"}`} />
             </button>
           </div>
         </div>
